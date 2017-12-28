@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<mata charset = "utf-8" />
+<style>
+ h2{
+  font-size: 30px;
+  padding-left: 100px;
+ }
+ 
+ table td{
+  width: 100px;
+  height: 100px;
+ }
+ 
+ img{
+  margin-top: 31px;
+ }
+ #content2{
+  z-index: 1;
+  margin-left: 40%;
+ }
+ 
+ #count{
+ width: 320px;
+ height: 40px;
+ background-color:#E8E8E8; 
+ padding-left: 0px;
+ text-align: center;
+ color: red;
+ font-size: 18px;
+ line-height: 30px;
+ 
+ }
+ 
+ #count .score{
+ text-align: center;
+ color: lightgreen;
+ font-size: 20px;
+ line-height: 30px;
+
+ }
+ 
+ #history #id{
+ text-align: center;
+ color: lightgreen;
+ font-size: 20px;
+ line-height: 30px;
+ 
+ }
+ #history{
+ position: absolute;
+ top:120px;
+ right:240px;
+ width: 180px;
+ height: 180px;
+ background-color: #E8E8E8;
+ color: lightblue;
+ font-size:20px;
+ line-height: 80px;
+ text-align: center;
+ }
+ .clock{
+ position: absolute;
+ top:0px;
+ right:240px;
+ width: 180px;
+ height: 120px;
+ background-color: lightblue;
+ color: red;
+ font-size: 20px;
+ text-align: center;
+ line-height: 60px;
+ }
+ #cover{
+  margin-top: 0px;
+ position: absolute;
+ z-index: 2;
+ width: 800px;
+ height: 600px;
+ top: 0px; 
+ left: 0px; 
+ right: 0px; 
+ bottom: 0px; 
+ margin: auto; 
+ background :rgba(128,128,128,0.5);
+ color: red;
+ font-size: 30px;
+ text-align: center;
+ vertical-align: middle;
+ }
+ </style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Merry christmas</title>
+<embed src="music/Perry Como - Jingle Bells.mp3" hidden="true" autostart="true" loop="true">
+<link href="stylesheet/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container-left">
+			<div class="logozone" style="width:210px;height:1px; background:url(images/logo.jpg);"></div>
+			<div class="menuzone">
+				<div class="mainmenu">
+					<ul>
+						<li>01.<a href="index.html"> Home</a></li>
+						<li>02.<a href="About Christmas.html">About Christmas</a></li>
+						<li>03.<a href="About Santa Claus.html">About Santa Claus</a></li>
+						<li>04.<a href="Game.html">Game</a></li>
+						<li>05.<a href="Christmas beauty.html">Christmas beauty</a></li>
+						<li>06.<a href="Christmas customs.html">Christmas customs</a></li>
+						<li style="border:none;">07.<a href="contact.html">contact us</a></li>
+                        <!--The above seven options can reach anywhere on this page-->
+						
+				  </ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="Sentiment">
+					<div>
+						<h2>Sentiment:</h2>
+						<div>
+							<div>
+							    <div class="browntxt">No.1</div>
+								May the bright and festive glow of Christmas candle warm the days all the year through?Hoping you will have a wonderful time enjoying Christmas Day and wishing you a New Year that is happy in every way?
+                          </div>
+							<div>
+							    <div class="browntxt">No.2</div>
+								it seems that christmas time is here once again, and it is time again to bring in the new year. we wish the merriest of christmas to you and your loved ones, and we wish you happiness and prosperity in the year ahead.
+                            </div>
+							<div class="more"><a href="www.baidu.com">more ...</a></div>
+						</div>
+					</div>
+  </div>
+                
+			<div class="clear"></div>
+</div>
+		<div class="container-right">
+			<div class="workarea">
+			  <div class="welcomezone">
+				  <h1>Game</h1>
+					<div>
+                     <table id = "background">
+  
+  <tr>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ </tr>
+ 
+ <tr>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ </tr>
+ 
+ <tr>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ <td><img src="images/Sman.jpg" width="158" height="208" /></td>
+ </tr>
+</table>
+<div id = "count">Current score :<span class = "score"> 0 </span>points</div>
+<div id = "history">Best record: <span id = "score1"> 0 </span>points</div>
+<div class = "clock"></div>
+</div>
+ 
+<div id = "cover" style="display:none"> <span id = "text"></span></div>
+<script type="text/javascript">
+ 
+ 
+<!--Get all the pictures first-->
+var content2 = document.getElementById('content2');
+var cover = document.getElementById('cover');
+var image = document.getElementsByTagName('img');
+var countMouse = document.getElementById('count');
+var score = countMouse.querySelector(".score");
+var history = document.getElementById("history");
+var score1 = document.getElementById("score1");
+var div = document.querySelector(".clock");
+var text = document.getElementById("text");
+var preScore = 0;
+var ranK;
+var count = 0;
+ 
+// localStorage.removeItem("bestScore");
+// localStorage.removeItem("scoreshow");
+ 
+preScore = localStorage.getItem("bestScore");
+console.log(preScore);
+score1.innerHTML = preScore;
+
+<!--Let the green birds appear at random-->
+setTimeout("chulai()",Math.random()*400+800);
+ 
+ 
+function chulai(){
+ try{
+ ranK = Math.floor(Math.random() * 9);
+ image[ranK].src = "images/bird2.jpg";
+ image[ranK].style.marginTop = "0px";
+ image[ranK].setAttribute("onclick","die()");
+ setTimeout("paole()", Math.random()*400+800);
+ }catch(ex){}
+}
+<!--The green bird went back-->
+function paole(){
+ try{
+ image[ranK].src = "images/Sman.jpg";
+ image[ranK].style.marginTop = "31px";
+ image[ranK].removeAttribute("onclick");
+ setTimeout("chulai()", Math.random()*400+800);
+ }catch(ex){}
+}
+<!--The green bird was found-->
+ 
+function die(){
+ try{
+ image[ranK].src = "images/Sm2.jpg";
+ image[ranK].removeAttribute("onclick");
+ image[ranK].style.marginTop = "3px";
+ count++;
+ score.innerHTML =count;
+ 
+ if( count > preScore)
+ {
+  score1.innerHTML = count;
+  preScore = count;
+ }
+ localStorage.setItem("bestScore",preScore);
+ }catch(ex){
+ 
+ }
+}
+<!--Set a timer-->
+var seconds = 59;
+var speed = 1000;
+ 
+ 
+function countDown(seconds,speed){
+  var txt = "left time:" + ((seconds < 10) ? "0" + seconds : seconds) +" Seconds";
+  div.innerHTML = txt;
+  var timeId = setTimeout("countDown(seconds--,speed)",speed);
+  if(seconds == 0){
+   //localStorage.setItem("scoreshow",count);
+   localStorage.setItem("bestScore",preScore);
+ 
+   clearTimeout(timeId);
+   if(cover.style.display == "none"){
+    cover.style.display = "block";
+   if(count === undefined)
+    text.innerHTML = "The current achievement is:"+0+"points"+"<br/>"+"Game over!";
+ 
+   else if(count == localStorage.getItem("bestScore")){
+    text.innerHTML = "The current achievement is:"+count+"points"+"<br/>"+"Congratulations on breaking the record"+"<br/>"+"Game over!";
+    }
+   else
+    text.innerHTML = "The current achievement is:"+count+"points"+"<br/>"+"Game over!";
+    } 
+   }
+ 
+}
+ 
+countDown(seconds,speed);
+ 
+</script>
+		</div>
+		<div class="footerlink">
+		Copyright (c)xxxxxxxx.com. All rights reserved. 
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+</body>
+</html>
